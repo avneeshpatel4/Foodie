@@ -1,5 +1,5 @@
 import { CreateUserParams, GetMenuParams, SignInParams } from "@/type";
-import { Account, Avatars, Client, Databases, ID, Query } from "react-native-appwrite"
+import { Account, Avatars, Client, Databases, ID, Query, Storage } from "react-native-appwrite"
 
 export const appwriteConfig ={
    endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!,
@@ -7,7 +7,12 @@ export const appwriteConfig ={
    platform: "com.jsm.foodie",
    name:process.env.EXPO_PUBLIC_APPWRITE_PROJECT_NAME,
    databaseId:'68b7e3dd001fa8d11cf9',
-   userCollectionId: '68b7e71500052177f6ce'
+   bucketId:'68b9888c00303f6d548d',
+   userCollectionId: '68b7e71500052177f6ce',
+   categoriesCollectionId:'categories',
+   menuCollectionId:'menu',
+   customizationsCollectionId:'68b985c500009d8809ec',
+   menuCustomizationsCollectionId:'68b9871f000fb02297fc',
 }
 
 export const client = new Client()
@@ -19,7 +24,8 @@ client
 
 
 export const account =  new Account(client);
-export const databases =  new Databases(client)  
+export const databases =  new Databases(client) 
+export const storage =  new Storage(client) 
 const avatars =  new Avatars(client)
 
 
