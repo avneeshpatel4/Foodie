@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { Link, router } from 'expo-router'
 import CustomInput from '@/components/CustomInput'
 import CustomButton from '@/components/CustomButton'
-import { createUser } from '@/lib/appwrite'
+import { account, createUser } from '@/lib/appwrite'
 
-const SignUp = () => {
+const SignUp =() => {
     const [isSubmitting,setIsSubmitting] = useState(false)
     const [form,setForm] = useState({
         name:'',

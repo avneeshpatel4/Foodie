@@ -35,7 +35,7 @@ const dummyData = {
     menu: [
         {
             name: "Classic Cheeseburger",
-            description: "Chicken patty, cheese, lettuce, tomato",
+            description: "Beef patty, cheese, lettuce, tomato",
             image_url:
                 "https://static.vecteezy.com/system/resources/previews/044/844/600/large_2x/homemade-fresh-tasty-burger-with-meat-and-cheese-classic-cheese-burger-and-vegetable-ai-generated-free-png.png",
             price: 25.99,

@@ -7,17 +7,16 @@ export const appwriteConfig ={
    platform: "com.jsm.foodie",
    name:process.env.EXPO_PUBLIC_APPWRITE_PROJECT_NAME,
    databaseId:'68b7e3dd001fa8d11cf9',
-   bucketId:'68b9888c00303f6d548d',
+   bucketId:'68c2a948003857752271',
    userCollectionId: '68b7e71500052177f6ce',
-   categoriesCollectionId:'categories',
-   menuCollectionId:'menu',
-   customizationsCollectionId:'68b985c500009d8809ec',
-   menuCustomizationsCollectionId:'68b9871f000fb02297fc',
+   categoriesCollectionId:'68c2a41f003caa813910',
+   menuCollectionId:'68c2a4d10024432afaee',
+   customizationsCollectionId:'68c2a698003d3be9f2e7',
+   menuCustomizationsCollectionId:'68c2a7c3000008625e0e',
 }
 
 export const client = new Client()
-
-client
+  client
     .setEndpoint(appwriteConfig.endpoint)
     .setProject(appwriteConfig.projectId)
     .setPlatform(appwriteConfig.platform)
@@ -78,34 +77,34 @@ export const getCurrentUser = async () => {
     }
 }
 
-// export const getMenu = async ({ category, query }: GetMenuParams) => {
-//     try {
-//         const queries: string[] = [];
+export const getMenu = async ({ category, query }: GetMenuParams) => {
+    try {
+        const queries: string[] = [];
 
-//         if(category) queries.push(Query.equal('categories', category));
-//         if(query) queries.push(Query.search('name', query));
+        if(category) queries.push(Query.equal('categories', category));
+        if(query) queries.push(Query.search('name', query));
 
-//         const menus = await databases.listDocuments(
-//             appwriteConfig.databaseId,
-//             appwriteConfig.menuCollectionId,
-//             queries,
-//         )
+        const menus = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.menuCollectionId,
+            queries,
+        )
 
-//         return menus.documents;
-//     } catch (e) {
-//         throw new Error(e as string);
-//     }
-// }
+        return menus.documents;
+    } catch (e) {
+        throw new Error(e as string);
+    }
+}
 
-// export const getCategories = async () => {
-//     try {
-//         const categories = await databases.listDocuments(
-//             appwriteConfig.databaseId,
-//             appwriteConfig.categoriesCollectionId,
-//         )
+export const getCategories = async () => {
+    try {
+        const categories = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.categoriesCollectionId,
+        )
 
-//         return categories.documents;
-//     } catch (e) {
-//         throw new Error(e as string);
-//     }
-// }
+        return categories.documents;
+    } catch (e) {
+        throw new Error(e as string);
+    }
+}
