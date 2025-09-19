@@ -108,3 +108,15 @@ export const getCategories = async () => {
         throw new Error(e as string);
     }
 }
+
+// 👇 Add at the end of file
+export const logout = async () => {
+  try {
+    await account.deleteSession("current"); // logout user
+    return true;
+  } catch (e) {
+    console.log("Logout error:", e);
+    throw new Error(e as string);
+  }
+};
+
